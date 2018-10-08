@@ -26,11 +26,12 @@ body {
  */
 
 main {
-  width: 450px;
+  width: 650px;
   padding-top: 140px;
   margin: auto;
   align-self: center;
   background: white;
   height: 100%;
-  padding-bottom: 400px;
+  padding-bottom: 50px;
 }
+
