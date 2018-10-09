@@ -1,12 +1,13 @@
 const charLimit = 140;
 const changeLength = function(event) {
   let counter = charLimit - $(this).val().length;
+  const $sibling = $(this).siblings('.counter');
   if (counter < 0) {
-    $(this).parent().children('.counter').css('color', 'red');
+    $sibling.css('color', 'red');
   } else {
-    $(this).parent().children('.counter').css('color', '#244751');
+    $sibling.css('color', '#244751');
   }
-  $(this).parent().children('.counter').text(counter);
+  $sibling.text(counter);
 };
 
 $(document).ready(() => {

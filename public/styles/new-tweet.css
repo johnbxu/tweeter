@@ -5,8 +5,8 @@
   margin-right: 2em;
   margin-left: 2em;
   padding-bottom: 0.7em;
-  position: absolute;
-  visibility: hidden;
+  display: none;
+  overflow: hidden;
 }
 
 .new-tweet h2 {
@@ -28,6 +28,17 @@
 }
 
 .new-tweet .counter {
-  position: absolute;
-  right: 10px;
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+@keyframes expand {
+  from {transform: scaleY(0);}
+    to {transform: scaleY(1);}
+}
+
+@keyframes collapse {
+  from {transform: scaleY(1);}
+    to {transform: scaleY(0);}
 }

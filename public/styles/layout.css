@@ -26,12 +26,14 @@ body {
  */
 
 main {
-  width: 650px;
+  width: 550px;
   padding-top: 100px;
   margin: auto;
   align-self: center;
   background: white;
   height: 100%;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
 }
 

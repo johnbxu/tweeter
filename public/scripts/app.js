@@ -3,6 +3,24 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const charLimit = 140;
+const changeLength = function(event) {
+  let counter = charLimit - $(this).val().length;
+  const $sibling = $(this).siblings('.counter');
+  if (counter < 0) {
+    $sibling.css('color', 'red');
+  } else {
+    $sibling.css('color', '#244751');
+  }
+  $sibling.text(counter);
+};
+
+$(document).ready(() => {
+  console.log('dom is ready to go');
+  $('textarea').keyup(changeLength);
+});
+
+
 const createTweetElement = (tweetData) => {
   const time = new Date(tweetData.created_at).toString().slice(0,24);
   let $avatar = $("<img>").addClass("avatar").attr('src', tweetData.user.avatars.small);
@@ -58,6 +76,7 @@ $(function() {
             .then(function (tweets) {
               renderOneTweet(tweets[0]);
             });
+          $('.counter').text('140'); //refactor this
           $('#tweetText').val('');
         },
         error: function(error, textStatus, errorThrown) {
@@ -71,6 +90,9 @@ $(function() {
 
 $(function() {
   $('#compose').click(function(){
-    $(".new-tweet").css('position', 'relative').css('visibility', 'visible');
+    let $newTweet = $(".new-tweet");
+    $newTweet.slideToggle('slow', function() {
+      $('#tweetText').focus();
+    });
   });
 });
