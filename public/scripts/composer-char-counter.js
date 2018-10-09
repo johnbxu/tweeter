@@ -1,5 +1,7 @@
 const charLimit = 140;
-const changeLength = function(event) {
+
+// Updates character counter element
+const changeLength = function (event) {
   let counter = charLimit - $(this).val().length;
   const $sibling = $(this).siblings('.counter');
   if (counter < 0) {
@@ -10,8 +12,6 @@ const changeLength = function(event) {
   $sibling.text(counter);
 };
 
-$(document).ready(() => {
-  console.log('dom is ready to go');
+$(function () {
   $('textarea').keyup(changeLength);
 });
-

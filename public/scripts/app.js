@@ -1,24 +1,19 @@
-const charLimit = 140;
-
-// Updates character counter element
-const changeLength = function(event) {
-  let counter = charLimit - $(this).val().length;
-  const $sibling = $(this).siblings('.counter');
-  if (counter < 0) {
-    $sibling.css('color', 'red');
-  } else {
-    $sibling.css('color', '#244751');
-  }
-  $sibling.text(counter);
-};
-
 // Creates tweets DOM element
 const createTweetElement = (tweetData) => {
-  const time = new Date(tweetData.created_at).toString().slice(0,24);
-  let $avatar = $("<img>").addClass("avatar").attr('src', tweetData.user.avatars.small);
-  let $hashTag = $("<span>").addClass("hashTag").text(tweetData.user.handle);
-  let $userName = $("<span>").addClass("userName").text(tweetData.user.name);
-  let $tweetText = $("<p>").addClass("tweetText").text(tweetData.content.text);
+  const {user, content, created_at} = tweetData;
+  const {avatars, handle, name} = user;
+  const date = new Date(); ///////////time needs to be redone
+  const diff = date.getTime() - created_at;
+  const diffInDays = Math.floor(diff/86400000);
+  const diffInHours = Math.floor(diff/3600000);
+  const diffInMinutes = Math.floor(diff/60000);
+  let time;
+  (diffInDays > 1) ? (time = diffInDays + ' days ago') :
+    (diffInHours > 1) ? (time = diffInHours + ' hours ago') : (time = diffInMinutes + ' minutes ago')
+  let $avatar = $("<img>").addClass("avatar").attr('src', avatars.small);
+  let $hashTag = $("<span>").addClass("hashTag").text(handle);
+  let $userName = $("<span>").addClass("userName").text(name);
+  let $tweetText = $("<p>").addClass("tweetText").text(content.text);
   let $timeStamp = $("<p>").addClass("timeStamp").text(time);
   let $div = $("<div>").addClass("headerText").append($userName).append($hashTag);
   let $header = $("<header>").append($avatar).append($div);
