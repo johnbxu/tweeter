@@ -58,6 +58,7 @@ $(function() {
             .then(function (tweets) {
               renderOneTweet(tweets[0]);
             });
+          $('#tweetText').val('');
         },
         error: function(error, textStatus, errorThrown) {
           console.log(errorThrown);
@@ -65,5 +66,11 @@ $(function() {
       });
     }
     return false;
+  });
+});
+
+$(function() {
+  $('#compose').click(function(){
+    $(".new-tweet").css('position', 'relative').css('visibility', 'visible');
   });
 });
