@@ -27,18 +27,21 @@
   margin-left: 8px;
 }
 
+.new-tweet .error {
+  display: none;
+  margin: 2px;
+}
+
+.new-tweet .errorMessage {
+  margin: 0;
+  margin-left: 10px;
+  padding-top: 8px;
+  font-style: italic;
+  color: red;
+}
+
 .new-tweet .counter {
   float: right;
   margin-right: 15px;
   margin-top: 3px;
-}
-
-@keyframes expand {
-  from {transform: scaleY(0);}
-    to {transform: scaleY(1);}
-}
-
-@keyframes collapse {
-  from {transform: scaleY(1);}
-    to {transform: scaleY(0);}
 }

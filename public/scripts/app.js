@@ -16,7 +16,6 @@ const changeLength = function(event) {
 };
 
 $(document).ready(() => {
-  console.log('dom is ready to go');
   $('textarea').keyup(changeLength);
 });
 
@@ -49,6 +48,16 @@ const renderOneTweet = (data) => {
   $('#tweets').prepend(createTweetElement(data));
 };
 
+const displayError = (length) => {
+  if (length > 140) {
+    $('.errorMessage').text('Your tweet must be less than 140 characters long');
+    $('.error').slideDown('fast');
+  } else {
+    $('.errorMessage').text('Your tweet must not be empty');
+    $('.error').slideDown('fast');
+  }
+};
+
 $(function() {
   const loadTweets = function(){
     $.ajax('/tweets', { method: 'GET' })
@@ -60,12 +69,9 @@ $(function() {
 
 $(function() {
   $('#newTweet').click(function(event) {
-    if ($('#tweetText').val().length > 140) {
-      alert('Your tweet must be less than 140 characters long');
-      event.preventDefault();
-    } else if ($('#tweetText').val().length < 1) {
-      alert('Your tweet must not be empty');
-      event.preventDefault();
+    const length = $('#tweetText').val().length;
+    if (length > 140 || length < 1) {
+      displayError(length);
     } else {
       $.ajax({
         type: 'POST',
@@ -78,6 +84,7 @@ $(function() {
             });
           $('.counter').text('140'); //refactor this
           $('#tweetText').val('');
+          $('.error').slideUp('fast');
         },
         error: function(error, textStatus, errorThrown) {
           console.log(errorThrown);
