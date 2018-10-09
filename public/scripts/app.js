@@ -65,6 +65,17 @@ const displayError = (length) => {
   }
 };
 
+// Creates an AJAX request for making a new tweet, and updates page to show new tweet
+const ajaxMakeNewTweet = () => {
+  $.ajax({
+    type: 'POST',
+    url: '/tweets/',
+    data: $('#tweetText').serialize(),
+  }).done(function(response) {
+    $('#tweets').prepend(createTweetElement(response));
+  });
+};
+
 // Renders tweets currently in database
 $(function() {
   const loadTweets = function(){
@@ -79,28 +90,12 @@ $(function() {
 $(function() {
   $('#newTweet').click(function(event) {
     const length = $('#tweetText').val().length;
+    event.preventDefault();
     if (length > 140 || length < 1) {
       displayError(length);
     } else {
-      $.ajax({
-        type: 'POST',
-        url: '/tweets/',
-        data: $('#tweetText').serialize(),
-        success: function() {
-          $.ajax('/tweets', { method: 'GET' })
-            .then(function (tweets) {
-              renderOneTweet(tweets[0]);
-            });
-          $('.counter').text('140'); //refactor this
-          $('.error').slideUp('fast');
-          $('#tweetText').val('');
-        },
-        error: function(error, textStatus, errorThrown) {
-          console.log(errorThrown);
-        }
-      });
+      ajaxMakeNewTweet();
     }
-    return false;
   });
 });
 
