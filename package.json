@@ -16,7 +16,7 @@
     "change": "0.0.0",
     "express": "^4.16.3",
     "md5": "^2.2.1",
-    "mongodb": "^3.1.6"
+    "mongodb": "^2.2.36"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
