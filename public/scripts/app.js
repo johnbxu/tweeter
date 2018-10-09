@@ -29,29 +29,34 @@ const renderTweets = (data) => {
 
 
 const loadTweets = function(){
-  $(document).ready(() => {
+  $(function() {
     $.ajax('/tweets', { method: 'GET' })
       .then(function (tweets) {
         renderTweets(tweets);
-
       });
   });
 }();
 
 $(function() {
-  var $button = $('#newTweet');
-  $button.on('submit', function (event) {
-    event.preventDefault();
-    console.log('Button clicked, performing ajax call...');
-    $.ajax({
-      type: 'POST',
-      data: $(this).serialize(),
-      success: function(data, textStatus, error) {
-        console.log(data);
-      },
-      error: function(error, textStatus, errorThrown) {
-        console.log(errorThrown);
-      }
-    });
+
+  $('#newTweet').click(function(event) {
+    if ($('#tweetText').val().length > 140 || $('#tweetText').val().length < 1) {
+      alert('Your tweet must be 1-140 characters long');
+      event.preventDefault();
+    } else {
+      // event.preventDefault();
+      $('#newTweet').on('submit', function (event) {
+        $.ajax({
+          method: 'POST',
+          data: $(this).serialize(),
+          success: function(data, textStatus, error) {
+            console.log(data);
+          },
+          error: function(error, textStatus, errorThrown) {
+            console.log(errorThrown);
+          }
+        });
+      });
+    }
   });
 });
