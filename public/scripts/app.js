@@ -3,7 +3,10 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 const charLimit = 140;
+
+// Updates character counter element
 const changeLength = function(event) {
   let counter = charLimit - $(this).val().length;
   const $sibling = $(this).siblings('.counter');
@@ -15,11 +18,12 @@ const changeLength = function(event) {
   $sibling.text(counter);
 };
 
+// Tracks how many characters are in tweet text area
 $(document).ready(() => {
   $('textarea').keyup(changeLength);
 });
 
-
+// Creates tweets DOM element
 const createTweetElement = (tweetData) => {
   const time = new Date(tweetData.created_at).toString().slice(0,24);
   let $avatar = $("<img>").addClass("avatar").attr('src', tweetData.user.avatars.small);
@@ -37,6 +41,7 @@ const createTweetElement = (tweetData) => {
   return $tweet;
 };
 
+// Renders all tweets passed into function
 const renderTweets = (data) => {
   let $tweets = $('#tweets');
   for (const tweet in data) {
@@ -44,10 +49,12 @@ const renderTweets = (data) => {
   }
 };
 
+// Renders only one tweet and prepends it to #tweets section
 const renderOneTweet = (data) => {
   $('#tweets').prepend(createTweetElement(data));
 };
 
+// Changes text of error box based on length of tweet
 const displayError = (length) => {
   if (length > 140) {
     $('.errorMessage').text('Your tweet must be less than 140 characters long');
@@ -58,6 +65,7 @@ const displayError = (length) => {
   }
 };
 
+// Renders tweets currently in database
 $(function() {
   const loadTweets = function(){
     $.ajax('/tweets', { method: 'GET' })
@@ -67,6 +75,7 @@ $(function() {
   }();
 });
 
+// On click of tweet button
 $(function() {
   $('#newTweet').click(function(event) {
     const length = $('#tweetText').val().length;
@@ -83,8 +92,8 @@ $(function() {
               renderOneTweet(tweets[0]);
             });
           $('.counter').text('140'); //refactor this
-          $('#tweetText').val('');
           $('.error').slideUp('fast');
+          $('#tweetText').val('');
         },
         error: function(error, textStatus, errorThrown) {
           console.log(errorThrown);
@@ -95,6 +104,7 @@ $(function() {
   });
 });
 
+// Compose button - toggles Compose Tweet section
 $(function() {
   $('#compose').click(function(){
     let $newTweet = $(".new-tweet");
