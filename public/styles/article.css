@@ -10,56 +10,50 @@ article {
   z-index: 1;
   overflow: hidden;
 }
-
-article:hover {
-  opacity: 1;
-}
-
-article.tweet header {
+article .tweet header {
   background: #bab8b7;
   height: 64px;
   display: flex;
   align-items: top;
 }
-
-article.tweet footer {
+article .tweet footer {
   border-top: grey solid 1px;
 }
-
-article.tweet .headerText {
+article .tweet .headerText {
   display: flex;
   width: 100%;
   justify-content: space-between;
   margin-top: 10px;
-
 }
-
-article.tweet .avatar {
+article .tweet .avatar {
   height: 50px;
   width: 50px;
   margin: 7px;
   background: white;
   border-radius: 5px;
 }
-
-article.tweet .userName {
+article .tweet .userName {
   font-size: 1.5rem;
   font-weight: 700;
 }
-
-article.tweet .hashTag {
+article .tweet .hashTag {
   padding-right: 10px;
 }
-
-article.tweet .timeStamp {
+article .tweet .timeStamp {
   padding: 5px;
   padding-top: 8px;
   padding-left: 8px;
   font-size: 10px;
   margin: 0;
 }
-
-article.tweet .tweetContent {
+article .tweet .tweetContent {
   overflow-wrap: break-word;
   padding: 8px;
 }
+article:hover {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=SASSarticle.css.map */
+
+/*# sourceMappingURL=article.css.map */

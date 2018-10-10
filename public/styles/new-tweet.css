@@ -8,13 +8,11 @@
   display: none;
   overflow: hidden;
 }
-
 .new-tweet h2 {
   margin: 8px;
   border-bottom: black 1px solid;
   margin-bottom: 15px;
 }
-
 .new-tweet textarea {
   width: 95%;
   height: 50px;
@@ -22,11 +20,9 @@
   margin-right: 8px;
   padding: 5px;
 }
-
 .new-tweet input {
   margin-left: 8px;
 }
-
 .new-tweet .error {
   display: none;
   margin: 2px;
@@ -35,7 +31,6 @@
   font-style: italic;
   color: red;
 }
-
 .new-tweet .errorMessage {
   margin: 0;
   margin-left: 10px;
@@ -43,9 +38,10 @@
   font-style: italic;
   color: red;
 }
-
 .new-tweet .counter {
   float: right;
   margin-right: 15px;
   margin-top: 3px;
 }
+
+/*# sourceMappingURL=new-tweet.css.map */

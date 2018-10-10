@@ -1,7 +1,7 @@
 #nav-bar {
   position: fixed;
-            left: 0;
-            right: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   background: #00a087;
@@ -10,26 +10,6 @@
   padding-left: 2em;
   padding-right: 2em;
   z-index: 3;
-}
-
-#nav-bar .headerContainer {
-  display: flex;
-  vertical-align: center;
-}
-
-#nav-bar .logo {
-  height: 80px;
-  width: 80px;
-}
-
-#nav-bar .header {
-  font-size: 2rem;
-  color: white;
-  margin-left: 10px;
-  padding-top: 20px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
-  transform: scale(0.8, 1);
 }
 #nav-bar button {
   color: #00a087;
@@ -40,7 +20,26 @@
   height: 60px;
   margin: auto 30px auto 70px;
 }
+#nav-bar button:hover {
+  background-color: #00a087;
+  color: white;
+}
+#nav-bar .headerContainer {
+  display: flex;
+  vertical-align: center;
+}
+#nav-bar .logo {
+  height: 80px;
+  width: 80px;
+}
+#nav-bar .header {
+  font-size: 2rem;
+  color: white;
+  margin-left: 10px;
+  padding-top: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  transform: scale(0.8, 1);
+}
 
-
-
-
+/*# sourceMappingURL=nav.css.map */

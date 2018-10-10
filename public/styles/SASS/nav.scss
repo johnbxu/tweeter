@@ -1,0 +1,48 @@
+#nav-bar {
+  position: fixed;
+            left: 0;
+            right: 0;
+  display: flex;
+  justify-content: space-between;
+  background: #00a087;
+  font-size: 2em;
+  height: 80px;
+  padding-left: 2em;
+  padding-right: 2em;
+  z-index: 3;
+
+  button {
+    color: #00a087;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: solid black 1.2px;
+    background: white;
+    height: 60px;
+    margin: auto 30px auto 70px;
+
+    &:hover {
+      background-color: #00a087;
+      color: white;
+    }
+  }
+
+  .headerContainer {
+    display: flex;
+    vertical-align: center;
+  }
+
+  .logo {
+    height: 80px;
+    width: 80px;
+  }
+
+  .header {
+    font-size: 2rem;
+    color: white;
+    margin-left: 10px;
+    padding-top: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    transform: scale(0.8, 1);
+  }
+}

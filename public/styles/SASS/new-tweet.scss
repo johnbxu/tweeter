@@ -1,0 +1,51 @@
+.new-tweet {
+  border: solid 1px grey;
+  border-radius: 5px;
+  background-color: #eee;
+  margin-right: 2em;
+  margin-left: 2em;
+  padding-bottom: 0.7em;
+  display: none;
+  overflow: hidden;
+
+  h2 {
+    margin: 8px;
+    border-bottom: black 1px solid;
+    margin-bottom: 15px;
+  }
+
+  textarea {
+    width: 95%;
+    height: 50px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 5px;
+  }
+
+  input {
+    margin-left: 8px;
+  }
+
+  .error {
+    display: none;
+    margin: 2px;
+    margin-left: 10px;
+    padding-top: 8px;
+    font-style: italic;
+    color: red;
+  }
+
+  .errorMessage {
+    margin: 0;
+    margin-left: 10px;
+    padding-top: 8px;
+    font-style: italic;
+    color: red;
+  }
+
+  .counter {
+    float: right;
+    margin-right: 15px;
+    margin-top: 3px;
+  }
+}

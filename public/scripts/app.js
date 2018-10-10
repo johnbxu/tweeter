@@ -2,14 +2,8 @@
 const createTweetElement = (tweetData) => {
   const {user, content, created_at} = tweetData;
   const {avatars, handle, name} = user;
-  const date = new Date();
-  const diff = date.getTime() - created_at;
-  const diffInDays = Math.floor(diff/86400000);
-  const diffInHours = Math.floor(diff/3600000);
-  const diffInMinutes = Math.floor(diff/60000);
-  let time;
-  (diffInDays > 0) ? (time = diffInDays + ' days ago') :
-    (diffInHours > 0) ? (time = diffInHours + ' hours ago') : (time = diffInMinutes + ' minutes ago')
+  const time = minutesAgo(created_at);
+
   let $avatar = $("<img>").addClass("avatar").attr('src', avatars.small);
   let $hashTag = $("<span>").addClass("hashTag").text(handle);
   let $userName = $("<span>").addClass("userName").text(name);
@@ -20,6 +14,19 @@ const createTweetElement = (tweetData) => {
   let $footer = $("<footer>").append($timeStamp);
   let $tweet = $("<article>").addClass("tweet").append($header).append($tweetContent).append($footer);
   return $tweet;
+};
+
+// This calculates how much time has past since tweet creation
+const minutesAgo = (tweetTime) => {
+  const date = new Date();
+  const diff = date.getTime() - tweetTime - 600000;
+  const diffInDays = Math.floor(diff/86400000);
+  const diffInHours = Math.floor(diff/3600000);
+  const diffInMinutes = Math.floor(diff/60000);
+  let time;
+  (diffInDays > 0) ? (time = diffInDays + ' days ago') :
+    (diffInHours > 0) ? (time = diffInHours + ' hours ago') : (time = diffInMinutes + ' minutes ago');
+  return time;
 };
 
 // Renders all tweets passed into function
