@@ -7,26 +7,33 @@ const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 module.exports = function makeDataHelpers(db) {
   return {
 
-    // Saves a tweet to `db`
+    // Saves a tweet to MongoDB database
     saveTweet: function(newTweet, callback) {
-
       callback(null, true);
-
       MongoClient.connect(MONGODB_URI, (err, database) => {
         if (err) {
           console.error(`Failed to connect: ${MONGODB_URI}`);
           throw err;
         }
-        console.log(`Connected to mongodb: ${MONGODB_URI}`);
-        database.collection('tweeter').insertOne(newTweet);
+        database.collection('tweets').insertOne(newTweet);
         database.close();
       });
     },
 
-    // Get all tweets in `db`, sorted by newest first
+    // Get all tweets in MongoDB database, sorted by newest first
     getTweets: function(callback) {
-      const sortNewestFirst = (a, b) => b.created_at - a.created_at;
-      callback(null, db.tweets.sort(sortNewestFirst));
+      MongoClient.connect(MONGODB_URI, (err, database) => {
+        if (err) {
+          console.error(`Failed to connect: ${MONGODB_URI}`);
+          throw err;
+        }
+        database.collection("tweets").find().toArray((err, tweets) => {
+          let getDB = { tweets: tweets };
+          const sortNewestFirst = (a, b) => b.created_at - a.created_at;
+          callback(null, getDB.tweets.sort(sortNewestFirst));
+          database.close();
+        });
+      });
     }
   };
 };
