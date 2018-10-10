@@ -2,46 +2,40 @@
   border: solid 1px grey;
   border-radius: 5px;
   background-color: #eee;
-  margin-right: 2em;
-  margin-left: 2em;
+  margin-right: 2rem;
+  margin-left: 2rem;
   padding-bottom: 0.7em;
   display: none;
   overflow: hidden;
 }
 .new-tweet h2 {
-  margin: 8px;
-  border-bottom: black 1px solid;
-  margin-bottom: 15px;
+  margin: 0.8rem;
+  border-bottom: black 1.2px solid;
+  margin-bottom: 1rem;
 }
 .new-tweet textarea {
   width: 95%;
-  height: 50px;
-  margin-left: 8px;
-  margin-right: 8px;
-  padding: 5px;
+  height: 6rem;
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
+  padding: 0.5rem;
 }
 .new-tweet input {
-  margin-left: 8px;
+  margin-left: 0.8rem;
 }
 .new-tweet .error {
   display: none;
-  margin: 2px;
-  margin-left: 10px;
-  padding-top: 8px;
-  font-style: italic;
-  color: red;
-}
-.new-tweet .errorMessage {
-  margin: 0;
-  margin-left: 10px;
-  padding-top: 8px;
+  margin: 0.2rem;
+  margin-left: 1rem;
+  padding-top: 0.8rem;
   font-style: italic;
   color: red;
 }
 .new-tweet .counter {
   float: right;
-  margin-right: 15px;
-  margin-top: 3px;
+  margin-right: 1rem;
+  margin-top: 0.3rem;
 }
 
 /*# sourceMappingURL=new-tweet.css.map */

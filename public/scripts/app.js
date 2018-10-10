@@ -19,7 +19,7 @@ const createTweetElement = (tweetData) => {
 // This calculates how much time has past since tweet creation
 const minutesAgo = (tweetTime) => {
   const date = new Date();
-  const diff = date.getTime() - tweetTime - 600000;
+  const diff = date.getTime() - tweetTime - 590000;
   const diffInDays = Math.floor(diff/86400000);
   const diffInHours = Math.floor(diff/3600000);
   const diffInMinutes = Math.floor(diff/60000);

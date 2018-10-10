@@ -1,5 +1,5 @@
 article {
-  border: solid 1px #595756;
+  border: solid 1.2px black;
   border-radius: 5px;
   background-color: #eee;
   margin-top: 1em;
@@ -10,48 +10,49 @@ article {
   z-index: 1;
   overflow: hidden;
 }
-article .tweet header {
+article:hover {
+  opacity: 1;
+}
+
+.tweet header {
   background: #bab8b7;
   height: 64px;
   display: flex;
   align-items: top;
 }
-article .tweet footer {
-  border-top: grey solid 1px;
+.tweet footer {
+  border-top: grey solid 1.2px;
 }
-article .tweet .headerText {
+.tweet .headerText {
   display: flex;
   width: 100%;
   justify-content: space-between;
   margin-top: 10px;
 }
-article .tweet .avatar {
+.tweet .avatar {
   height: 50px;
   width: 50px;
-  margin: 7px;
+  margin: 0.5rem;
   background: white;
   border-radius: 5px;
 }
-article .tweet .userName {
+.tweet .userName {
   font-size: 1.5rem;
   font-weight: 700;
 }
-article .tweet .hashTag {
-  padding-right: 10px;
+.tweet .hashTag {
+  padding-right: 0.7rem;
 }
-article .tweet .timeStamp {
-  padding: 5px;
-  padding-top: 8px;
-  padding-left: 8px;
-  font-size: 10px;
+.tweet .timeStamp {
+  padding: 0.3rem;
+  padding-top: 0.5rem;
+  padding-left: 0.8rem;
+  font-size: 0.7rem;
   margin: 0;
 }
-article .tweet .tweetContent {
+.tweet .tweetContent {
   overflow-wrap: break-word;
-  padding: 8px;
-}
-article:hover {
-  opacity: 1;
+  padding: 0.8rem;
 }
 
 /*# sourceMappingURL=SASSarticle.css.map */

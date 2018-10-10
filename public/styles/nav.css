@@ -5,10 +5,10 @@
   display: flex;
   justify-content: space-between;
   background: #00a087;
-  font-size: 2em;
+  font-size: 2rem;
   height: 80px;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 2rem;
+  padding-right: 2rem;
   z-index: 3;
 }
 #nav-bar button {
@@ -18,7 +18,7 @@
   border: solid black 1.2px;
   background: white;
   height: 60px;
-  margin: auto 30px auto 70px;
+  margin: auto 5rem auto 5rem;
 }
 #nav-bar button:hover {
   background-color: #00a087;
@@ -35,11 +35,10 @@
 #nav-bar .header {
   font-size: 2rem;
   color: white;
-  margin-left: 10px;
-  padding-top: 20px;
+  margin-left: 2rem;
+  padding-top: 2rem;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 300;
-  transform: scale(0.8, 1);
 }
 
 /*# sourceMappingURL=nav.css.map */

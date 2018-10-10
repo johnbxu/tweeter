@@ -1,51 +1,47 @@
+@import '_partials';
+$newTweetMargin: 0.8rem;
+
 .new-tweet {
   border: solid 1px grey;
-  border-radius: 5px;
-  background-color: #eee;
-  margin-right: 2em;
-  margin-left: 2em;
+  border-radius: $borderRadius;
+  background-color: $tweetBGColor;
+  margin-right: $margin;
+  margin-left: $margin;
   padding-bottom: 0.7em;
   display: none;
   overflow: hidden;
 
   h2 {
-    margin: 8px;
-    border-bottom: black 1px solid;
-    margin-bottom: 15px;
+    margin: $newTweetMargin;
+    border-bottom: black $borderWidth solid;
+    margin-bottom: 1rem;
   }
 
   textarea {
     width: 95%;
-    height: 50px;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 5px;
+    height: 6rem;
+    margin-left: $newTweetMargin;
+    margin-right: $newTweetMargin;
+    margin-bottom: $newTweetMargin;
+    padding: 0.5rem;
   }
 
   input {
-    margin-left: 8px;
+    margin-left: $newTweetMargin;
   }
 
   .error {
     display: none;
-    margin: 2px;
-    margin-left: 10px;
-    padding-top: 8px;
-    font-style: italic;
-    color: red;
-  }
-
-  .errorMessage {
-    margin: 0;
-    margin-left: 10px;
-    padding-top: 8px;
+    margin: 0.2rem;
+    margin-left: 1rem;
+    padding-top: $newTweetMargin;
     font-style: italic;
     color: red;
   }
 
   .counter {
     float: right;
-    margin-right: 15px;
-    margin-top: 3px;
+    margin-right: 1rem;
+    margin-top: 0.3rem;
   }
 }
