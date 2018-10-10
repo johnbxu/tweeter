@@ -14,16 +14,16 @@ app.use(express.static("public"));
 
 // Connects to and reads MongoDB collection in form of array
 const db = {tweets: {}};
-MongoClient.connect(MONGODB_URI, (err, database) => {
-  if (err) {
-    console.error(`Failed to connect: ${MONGODB_URI}`);
-    throw err;
-  }
-  database.collection("tweets").find().toArray((err, tweets) => {
-    db.tweets = tweets;
-    database.close();
-  });
-});
+// MongoClient.connect(MONGODB_URI, (err, database) => {
+//   if (err) {
+//     console.error(`Failed to connect: ${MONGODB_URI}`);
+//     throw err;
+//   }
+//   database.collection("tweets").find().toArray((err, tweets) => {
+//     db.tweets = tweets;
+//     database.close();
+//   });
+// });
 
 // Helper function that reads/creates tweets from/to database
 const DataHelpers = require("./lib/data-helpers.js")(db);
