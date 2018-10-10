@@ -30,6 +30,10 @@
 .new-tweet .error {
   display: none;
   margin: 2px;
+  margin-left: 10px;
+  padding-top: 8px;
+  font-style: italic;
+  color: red;
 }
 
 .new-tweet .errorMessage {

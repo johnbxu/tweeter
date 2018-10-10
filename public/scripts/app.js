@@ -2,7 +2,7 @@
 const createTweetElement = (tweetData) => {
   const {user, content, created_at} = tweetData;
   const {avatars, handle, name} = user;
-  const date = new Date(); ///////////time needs to be redone
+  const date = new Date();
   const diff = date.getTime() - created_at;
   const diffInDays = Math.floor(diff/86400000);
   const diffInHours = Math.floor(diff/3600000);
@@ -13,12 +13,12 @@ const createTweetElement = (tweetData) => {
   let $avatar = $("<img>").addClass("avatar").attr('src', avatars.small);
   let $hashTag = $("<span>").addClass("hashTag").text(handle);
   let $userName = $("<span>").addClass("userName").text(name);
-  let $tweetText = $("<p>").addClass("tweetText").text(content.text);
+  let $tweetContent = $("<p>").addClass("tweetContent").text(content.text);
   let $timeStamp = $("<p>").addClass("timeStamp").text(time);
   let $div = $("<div>").addClass("headerText").append($userName).append($hashTag);
   let $header = $("<header>").append($avatar).append($div);
   let $footer = $("<footer>").append($timeStamp);
-  let $tweet = $("<article>").addClass("tweet").append($header).append($tweetText).append($footer);
+  let $tweet = $("<article>").addClass("tweet").append($header).append($tweetContent).append($footer);
   return $tweet;
 };
 
@@ -33,11 +33,11 @@ const renderTweets = (data) => {
 // Changes text of error box based on length of tweet
 const displayError = (length) => {
   if (length > 140) {
-    $('.errorMessage').text('Your tweet must be less than 140 characters long');
+    $('.error').text('Your tweet must be less than 140 characters long');
     $('.error').slideDown('fast');
     return true;
   } else if (length < 1) {
-    $('.errorMessage').text('Your tweet must not be empty');
+    $('.error').text('Your tweet must not be empty');
     $('.error').slideDown('fast');
     return true;
   }
