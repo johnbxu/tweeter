@@ -38,5 +38,11 @@ module.exports = function(DataHelpers) {
       }
     });
   });
+
+  tweetsRoutes.put("/like", function(req, res) {
+
+
+  });
+
   return tweetsRoutes;
 };
