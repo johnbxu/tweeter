@@ -19,5 +19,14 @@ module.exports = function makeDataHelpers(db) {
         callback(null, sortedCollection.sort(sortNewestFirst));
       });
     },
+
+    updateLikes: function(user, likes, liked, callback) {
+      callback(null, true);
+      db.collection('tweets').updateOne(
+        { 'user.name': user},
+        {
+          $set: { 'likes': likes, 'liked': liked}
+        });
+    },
   };
 };

@@ -1,9 +1,14 @@
 "use strict";
 
-const userHelper    = require("../lib/util/user-helper")
+const userHelper      = require("../lib/util/user-helper");
 
-const express       = require('express');
-const tweetsRoutes  = express.Router();
+const express         = require('express');
+const tweetsRoutes    = express.Router();
+const methodOverride  = require('method-override');
+const app             = express();
+
+
+app.use(methodOverride('_method'));
 
 module.exports = function(DataHelpers) {
   tweetsRoutes.get("/", function(req, res) {
@@ -27,7 +32,8 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
-      created_at: Date.now()
+      created_at: Date.now(),
+      likes: 0,
     };
 
     DataHelpers.saveTweet(tweet, (err) => {
@@ -39,9 +45,14 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.put("/like", function(req, res) {
-
-
+  tweetsRoutes.post("/like/", function(req, res) {
+    DataHelpers.updateLikes(req.body.user, req.body.likes, req.body.liked, (err) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(201).send('success');
+      }
+    });
   });
 
   return tweetsRoutes;
