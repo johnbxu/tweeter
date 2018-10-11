@@ -5,13 +5,21 @@ article {
   margin-top: 1em;
   margin-right: 2em;
   margin-left: 2em;
-  padding-bottom: 0.7em;
   opacity: 0.7;
   z-index: 1;
   overflow: hidden;
 }
 article:hover {
   opacity: 1;
+}
+article:hover .fa-heart {
+  display: block;
+}
+article:hover .likesCounter {
+  display: block;
+}
+article:hover .fa-heart[data-liked=true] {
+  color: red;
 }
 
 .tweet header {
@@ -22,6 +30,19 @@ article:hover {
 }
 .tweet footer {
   border-top: grey solid 1.2px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 2rem;
+}
+.tweet .fa-heart {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+.tweet .fa-heart:hover {
+  color: red;
 }
 .tweet .headerText {
   display: flex;
@@ -48,11 +69,17 @@ article:hover {
   padding-top: 0.5rem;
   padding-left: 0.8rem;
   font-size: 0.7rem;
-  margin: 0;
+  margin: auto;
+  margin-left: 0.5rem;
 }
 .tweet .tweetContent {
   overflow-wrap: break-word;
   padding: 0.8rem;
+}
+.tweet .likesCounter {
+  margin-top: 0.5rem;
+  margin-right: 0.3rem;
+  display: none;
 }
 
 /*# sourceMappingURL=SASSarticle.css.map */

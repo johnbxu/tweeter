@@ -7,13 +7,21 @@ article {
   margin-top: 1em;
   margin-right: 2em;
   margin-left: 2em;
-  padding-bottom: 0.7em;
   opacity: 0.7;
   z-index: 1;
   overflow: hidden;
 
   &:hover {
     opacity: 1;
+  }
+  &:hover .fa-heart {
+    display: block;
+  }
+  &:hover .likesCounter {
+    display: block;
+  }
+  &:hover .fa-heart[data-liked='true']{
+    color: red;
   }
 }
 
@@ -27,6 +35,21 @@ article {
 
   footer {
     border-top: grey solid $borderWidth;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 2rem;
+  }
+
+  .fa-heart {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.5rem;
+    display: none;
+
+    &:hover {
+      color: red;
+    }
   }
 
   .headerText {
@@ -58,12 +81,19 @@ article {
     padding-top: 0.5rem;
     padding-left: 0.8rem;
     font-size: 0.7rem;
-    margin: 0;
+    margin: auto;
+    margin-left: 0.5rem;
   }
 
   .tweetContent {
     overflow-wrap: break-word;
     padding: 0.8rem;
+  }
+
+  .likesCounter {
+    margin-top: 0.5rem;
+    margin-right: 0.3rem;
+    display: none;
   }
 }
 
