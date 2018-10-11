@@ -102,6 +102,7 @@ $(function(){
       $(this).data('liked', true);
       $(this).data().likes++;
     }
+    $(this).siblings('.likesCounter').text($(this).data('likes'));
     $.ajax({
       url: '/tweets/like/',
       method: 'POST',
@@ -110,8 +111,6 @@ $(function(){
         liked: $(this).data('liked'),
         user: $(this).parents('.tweet').find('.userName').text(),
       }
-    }).done(function(){
-      $(this).siblings('.likesCounter').text($(this).data('likes'));
     });
 
     // need to figure out dynamic updating of the counter
