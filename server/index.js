@@ -9,6 +9,7 @@ const bodyParser    = require("body-parser");
 const app           = express();
 const MongoClient   = require("mongodb").MongoClient;
 const MONGODB_URI   = process.env.MONGODB_URI;
+const ObjectID      = require('mongodb').ObjectID;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -29,6 +30,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   app.use("/tweets", tweetsRoutes);
 });
 
-app.listen(process.env.PORT || PORT, () => {
-  console.log("Listening on port " + PORT);
+app.listen(process.env.PORT, () => {
+  console.log("Listening on port " + process.env.PORT);
 });

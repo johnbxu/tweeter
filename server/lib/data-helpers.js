@@ -20,10 +20,10 @@ module.exports = function makeDataHelpers(db) {
       });
     },
 
-    updateLikes: function(user, likes, liked, callback) {
+    updateLikes: function(id, likes, liked, callback) {
       callback(null, true);
       db.collection('tweets').updateOne(
-        { 'user.name': user},
+        { 'id' : id },
         {
           $set: { 'likes': likes, 'liked': liked}
         });

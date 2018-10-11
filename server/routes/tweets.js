@@ -6,7 +6,8 @@ const express         = require('express');
 const tweetsRoutes    = express.Router();
 const methodOverride  = require('method-override');
 const app             = express();
-
+const Chance          = require('chance');
+const chance          = new Chance();
 
 app.use(methodOverride('_method'));
 
@@ -34,6 +35,7 @@ module.exports = function(DataHelpers) {
       },
       created_at: Date.now(),
       likes: 0,
+      id: chance.string(),
     };
 
     DataHelpers.saveTweet(tweet, (err) => {
@@ -46,7 +48,7 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post("/like/", function(req, res) {
-    DataHelpers.updateLikes(req.body.user, req.body.likes, req.body.liked, (err) => {
+    DataHelpers.updateLikes(req.body.id, req.body.likes, req.body.liked, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {

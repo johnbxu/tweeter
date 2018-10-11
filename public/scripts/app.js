@@ -1,6 +1,6 @@
 // Creates tweets DOM element
 const createTweetElement = (tweetData) => {
-  const {user, content, created_at, likes, liked} = tweetData;
+  const {id, user, content, created_at, likes, liked} = tweetData;
   const {avatars, handle, name} = user;
   const time = minutesAgo(created_at);
 
@@ -9,11 +9,15 @@ const createTweetElement = (tweetData) => {
   let $userName = $("<span>").addClass("userName").text(name);
   let $tweetContent = $("<p>").addClass("tweetContent").text(content.text);
   let $timeStamp = $("<p>").addClass("timeStamp").text(time);
-  let $like = $("<i>").addClass("fas fa-heart").addClass('like').data('likes', likes).data('liked', liked);
+
+  let $like = $("<i>").addClass("fas fa-heart like").data('likes', likes).data('liked', liked).data('id', id);
+  let $flag = $("<i>").addClass("fas fa-flag");
+  let $retweet = $("<i>").addClass("fas fa-retweet");
+  let $likesCounter = $('<span>').addClass('likesCounter').text(likes);
+  let $icons = $("<div>").addClass("icons").append($flag).append($retweet).append($like).append($likesCounter);
   let $div = $("<div>").addClass("headerText").append($userName).append($hashTag);
   let $header = $("<header>").append($avatar).append($div);
-  let $likesCounter = $('<span>').addClass('likesCounter').text(likes);
-  let $footer = $("<footer>").append($timeStamp).append($like).append($likesCounter);
+  let $footer = $("<footer>").append($timeStamp).append($icons);
   let $tweet = $("<article>").addClass("tweet").append($header).append($tweetContent).append($footer);
   return $tweet;
 };
@@ -74,9 +78,6 @@ $(function(){
     });
   }();
 
-
-
-
   // Tracks how many characters are in tweet text area
   $('textarea').keyup(changeLength);
 
@@ -109,7 +110,7 @@ $(function(){
       data: {
         likes: $(this).data('likes'),
         liked: $(this).data('liked'),
-        user: $(this).parents('.tweet').find('.userName').text(),
+        id: $(this).data('id'),
       }
     });
 

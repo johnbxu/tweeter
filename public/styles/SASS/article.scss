@@ -1,29 +1,6 @@
 @import '_partials';
 
-article {
-  border: solid $borderWidth black;
-  border-radius: $borderRadius;
-  background-color: $tweetBGColor;
-  margin-top: 1em;
-  margin-right: 2em;
-  margin-left: 2em;
-  opacity: 0.7;
-  z-index: 1;
-  overflow: hidden;
 
-  &:hover {
-    opacity: 1;
-  }
-  &:hover .fa-heart {
-    display: block;
-  }
-  &:hover .likesCounter {
-    display: block;
-  }
-  &:hover .fa-heart[data-liked='true']{
-    color: red;
-  }
-}
 
 .tweet {
   header {
@@ -36,20 +13,35 @@ article {
   footer {
     border-top: grey solid $borderWidth;
     display: flex;
-    justify-content: space-between;
-    overflow: hidden;
+    // justify-content: space-between;
     height: 2rem;
-  }
 
+
+  }
+  .icons {
+    display: flex;
+    flex-direction: row;
+  }
+  .fa-retweet {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.5rem;
+    display: none;
+  }
+  .fa-flag {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.5rem;
+    display: none;
+  }
   .fa-heart {
     width: 1.2rem;
     height: 1.2rem;
     margin-top: 0.5rem;
     display: none;
-
-    &:hover {
-      color: red;
-    }
+  }
+  .fa-heart:hover {
+    color: red;
   }
 
   .headerText {
@@ -94,6 +86,41 @@ article {
     margin-top: 0.5rem;
     margin-right: 0.3rem;
     display: none;
+  }
+}
+
+article {
+  border: solid $borderWidth black;
+  border-radius: $borderRadius;
+  background-color: $tweetBGColor;
+  margin-top: 1em;
+  margin-right: 2em;
+  margin-left: 2em;
+  opacity: 0.7;
+  z-index: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:hover .fa-heart {
+    display: block;
+  }
+
+  &:hover .likesCounter {
+    display: block;
+  }
+
+  &:hover .fa-retweet {
+    display: block;
+  }
+
+  &:hover .fa-flag {
+    display: block;
+  }
+
+  &:hover .fa-heart[data-liked='true']{
+    color: red;
   }
 }
 
