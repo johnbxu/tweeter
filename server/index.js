@@ -1,5 +1,5 @@
-"use strict";
 require('dotenv').config();
+"use strict";
 
 // Basic express setup:
 
