@@ -65,7 +65,6 @@ const ajaxMakeNewTweet = () => {
 };
 
 // Renders tweets currently in database
-
 $(function(){
   const loadTweets = function(){
     $.get('/tweets').done(function (tweets) {
@@ -73,32 +72,12 @@ $(function(){
     }).done(function (){
       $('.like').each(function(){
         $(this).attr('data-liked', $(this).data('liked'));
-        console.log($(this).data('liked'));
       });
     });
   }();
 
   // Tracks how many characters are in tweet text area
   $('textarea').keyup(changeLength);
-
-  // registration form
-
-  $('.register').click(function(event){
-    event.preventDefault();
-    $.post('/register', $('.authentication').serialize())
-      .done(function(response) {
-        console.log(response);
-      });
-  });
-
-  $('.login').click(function(event){
-    event.preventDefault();
-    $.post('/login', $('.authentication').serialize())
-      .done(function(response) {
-        console.log(response);
-      });
-  });
-
 
   // On click of tweet button
   $('.newTweetForm').submit(function(event) {
@@ -111,8 +90,8 @@ $(function(){
     }
   });
 
-  // PROBLEM: data-liked on DOM is reset on page refresh. This causes problems1
-  $('.tweets').on('click', '.like', (function(event) {
+  // Client side tracking for likes and liked state
+  $('.tweets').on('click', '.like', (function() {
     if ($(this).attr('data-liked') === 'true') {
       $(this).attr('data-liked', 'false');
       $(this).data('liked', false);
@@ -132,11 +111,6 @@ $(function(){
         id: $(this).data('id'),
       }
     });
-
-    // need to figure out dynamic updating of the counter
-
-    console.log($(this).data('likes'));
-    console.log($(this).data('liked'));
   }));
 
   // Compose button - toggles Compose Tweet section
@@ -145,15 +119,4 @@ $(function(){
       $('#tweetText').focus();
     });
   });
-
-  $('.close').click(function(){
-    $('#myModal').css('display', 'none');
-  });
-  $('#myBtn').click(function(){
-    $('#myModal').css('display', 'block');
-  });
-
-
-
-
 });

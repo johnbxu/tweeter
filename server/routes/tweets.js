@@ -4,12 +4,9 @@ const userHelper      = require('../lib/util/user-helper');
 
 const express         = require('express');
 const tweetsRoutes    = express.Router();
-const methodOverride  = require('method-override');
 const app             = express();
 const Chance          = require('chance');
 const chance          = new Chance();
-
-app.use(methodOverride('_method'));
 
 module.exports = function(DataHelpers) {
   // requests all tweets in the collection and responds with the tweets
@@ -51,7 +48,12 @@ module.exports = function(DataHelpers) {
 
   // adjusts tweet's 'like' property
   tweetsRoutes.post('/tweets/like/', function(req, res) {
-    DataHelpers.updateLikes(req.body.id, req.body.likes, req.body.liked, (err) => {
+    const tweet = {
+      id: req.body.id,
+      likes: req.body.likes,
+      liked: req.body.liked,
+    };
+    DataHelpers.updateLikes(tweet, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
