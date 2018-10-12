@@ -26,6 +26,15 @@
   background-color: #00a087;
   color: white;
 }
+#nav-bar .authentication {
+  display: flex;
+  flex-direction: column;
+}
+#nav-bar .authentication input {
+  width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 #nav-bar .headerContainer {
   display: flex;
   vertical-align: center;

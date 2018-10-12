@@ -81,8 +81,27 @@ $(function(){
   // Tracks how many characters are in tweet text area
   $('textarea').keyup(changeLength);
 
+  // registration form
+
+  $('.register').click(function(event){
+    event.preventDefault();
+    $.post('/register', $('.authentication').serialize())
+      .done(function(response) {
+        console.log(response);
+      });
+  });
+
+  $('.login').click(function(event){
+    event.preventDefault();
+    $.post('/login', $('.authentication').serialize())
+      .done(function(response) {
+        console.log(response);
+      });
+  });
+
+
   // On click of tweet button
-  $('form').submit(function(event) {
+  $('.newTweetForm').submit(function(event) {
     event.preventDefault();
     if (!displayError($(this).children('textarea').val().length)) {
       ajaxMakeNewTweet();
@@ -126,4 +145,15 @@ $(function(){
       $('#tweetText').focus();
     });
   });
+
+  $('.close').click(function(){
+    $('#myModal').css('display', 'none');
+  });
+  $('#myBtn').click(function(){
+    $('#myModal').css('display', 'block');
+  });
+
+
+
+
 });

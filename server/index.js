@@ -27,7 +27,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
   // Mount the tweets routes at the "/tweets" path prefix:
-  app.use("/tweets", tweetsRoutes);
+  app.use("", tweetsRoutes);
 });
 
 app.listen(process.env.PORT, () => {

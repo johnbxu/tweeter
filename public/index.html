@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/article.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/modal.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -32,6 +33,19 @@
         <span class="header">Tweeter</span>
       </div>
       <button type="submit" id="compose"><i class="far fa-edit"></i>Compose</button>
+      <button id="myBtn">Open Modal</button>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="authentication">
+            <input type="email" name="email">
+            <input type="password" name="password">
+            <button type="submit" action="/login" class="login">Login</button>
+            <button type="submit" action="/register" class="register">Register</button>
+          </form>
+        </div>
+      </div>
     </nav>
 
     <!-- Page-specific (main) content here -->

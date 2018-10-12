@@ -30,6 +30,17 @@
     }
   }
 
+  .authentication {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 30rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .headerContainer {
     display: flex;
     vertical-align: center;
