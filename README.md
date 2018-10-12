@@ -6,9 +6,8 @@ The user is able to create tweets and like/unlike them. Clicking on the compose 
 
 ## Final Product
 
-![screenshot of URLs page](https://github.com/johnbxu/tinyURL/blob/master/docs/TinyApp.png)
-![screenshot of single URL page](https://github.com/johnbxu/tinyURL/blob/master/docs/Shortened%20URL.png)
-![screenshot of login page](https://github.com/johnbxu/tinyURL/blob/master/docs/Login.png)
+![screenshot of URLs page](https://github.com/johnbxu/tweeter/blob/master/docs/Home%20Page%20Narrow%20Viewport.png)
+![screenshot of composing a tweet](https://github.com/johnbxu/tweeter/blob/master/docs/Compose%20Tweet%20Full-width.png)
 
 ## Dependencies
 
