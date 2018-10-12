@@ -18,7 +18,7 @@
   border: solid black 1.2px;
   background: white;
   height: 60px;
-  margin: auto 5rem auto 5rem;
+  margin: auto 1rem auto 5rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -26,23 +26,17 @@
   background-color: #00a087;
   color: white;
 }
-#nav-bar .authentication {
-  display: flex;
-  flex-direction: column;
-}
-#nav-bar .authentication input {
-  width: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 #nav-bar .headerContainer {
   display: flex;
   vertical-align: center;
 }
+
 #nav-bar .logo {
   height: 80px;
   width: 80px;
 }
+
 #nav-bar .header {
   font-size: 2rem;
   color: white;
@@ -58,13 +52,14 @@
     flex-direction: column;
     height: 160px;
   }
+
   #nav-bar button {
     margin: auto 0.5rem auto 0.5rem;
   }
+
   #nav-bar .headerContainer {
     justify-content: center;
     margin-right: 3rem;
   }
 }
 
-/*# sourceMappingURL=nav.css.map */

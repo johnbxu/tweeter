@@ -3,13 +3,11 @@ const createTweetElement = (tweetData) => {
   const {id, user, content, created_at, likes, liked} = tweetData;
   const {avatars, handle, name} = user;
   const time = minutesAgo(created_at);
-
   let $avatar = $("<img>").addClass("avatar").attr('src', avatars.small);
   let $hashTag = $("<span>").addClass("hashTag").text(handle);
   let $userName = $("<span>").addClass("userName").text(name);
   let $tweetContent = $("<p>").addClass("tweetContent").text(content.text);
   let $timeStamp = $("<p>").addClass("timeStamp").text(time);
-
   let $like = $("<i>").addClass("fas fa-heart like").data('likes', likes).data('liked', liked).data('id', id);
   let $flag = $("<i>").addClass("fas fa-flag");
   let $retweet = $("<i>").addClass("fas fa-retweet");

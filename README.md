@@ -2,16 +2,32 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+The user is able to create tweets and like/unlike them. Clicking on the compose button will make an animated "new tweets" element appear.
 
-## Getting Started
+## Final Product
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+![screenshot of URLs page](https://github.com/johnbxu/tinyURL/blob/master/docs/TinyApp.png)
+![screenshot of single URL page](https://github.com/johnbxu/tinyURL/blob/master/docs/Shortened%20URL.png)
+![screenshot of login page](https://github.com/johnbxu/tinyURL/blob/master/docs/Login.png)
 
 ## Dependencies
 
-- Express
 - Node 5.10.x or above
+- Express
+- Body-parser
+- Chance
+- Express
+- Mongodb
+
+## Getting Started
+
+1. Install all dependencies (using `npm install`)
+2. Run the development web server using `node index.js`
+
+## Notes:
+* You will need to create a .env file in the root directory that includes the port and URI for MongoDB like such:
+```
+MONGODB_URI=mongodb://127.0.0.1:27017/tweets
+PORT=5000
+```
+Alternatively, change the PORT and MONGODB_URI variables in index.js manually.

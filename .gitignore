@@ -73,4 +73,4 @@ typings/
 .serverless
 
 # SASS precompiler files
-public/styles/SASS
+*.map
