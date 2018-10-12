@@ -2,6 +2,7 @@
 const bcrypt          = require('bcrypt');
 
 
+
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
   return {
@@ -34,10 +35,12 @@ module.exports = function makeDataHelpers(db) {
     login: function(user, callback) {
       db.collection('users').find({'email': user.email})
         .toArray((function(err, foundUser){
-          if (!bcrypt.compareSync(user.password, foundUser[0].password)) {
-            callback(true, 'wrong password');
+          if (foundUser.length < 1) {
+            callback(true, '400');
+          } else if (bcrypt.compareSync(user.password, foundUser[0].password)) {
+            callback(false, {loggedIn: true});
           } else {
-            callback(false, 'correct password');
+            callback(true, {loggedIn: false});
           }
         }));
     },
@@ -47,13 +50,18 @@ module.exports = function makeDataHelpers(db) {
     // it should respond
     register: function(user, callback) {
       //search
-      // db.collection('users').find({'name': username})
-      // if not exist
-      db.collection('users').insertOne(user);
-      callback(null, user);
-      // else
-      // callback('User does not exist');
 
+      db.collection('users').find({'email': user.email})
+        .toArray((function(err, foundUser){
+          if (foundUser.length > 1) {
+            callback(true, 'User already exists');
+          } else {
+            db.collection('users').insertOne(user);
+            callback(null, user);
+          }
+        // else
+        // callback('User does not exist');
+        }));
     },
 
   };

@@ -3,13 +3,11 @@ const createTweetElement = (tweetData) => {
   const {id, user, content, created_at, likes, liked} = tweetData;
   const {avatars, handle, name} = user;
   const time = minutesAgo(created_at);
-
   let $avatar = $("<img>").addClass("avatar").attr('src', avatars.small);
   let $hashTag = $("<span>").addClass("hashTag").text(handle);
   let $userName = $("<span>").addClass("userName").text(name);
   let $tweetContent = $("<p>").addClass("tweetContent").text(content.text);
   let $timeStamp = $("<p>").addClass("timeStamp").text(time);
-
   let $like = $("<i>").addClass("fas fa-heart like").data('likes', likes).data('liked', liked).data('id', id);
   let $flag = $("<i>").addClass("fas fa-flag");
   let $retweet = $("<i>").addClass("fas fa-retweet");
@@ -65,7 +63,6 @@ const ajaxMakeNewTweet = () => {
 };
 
 // Renders tweets currently in database
-
 $(function(){
   const loadTweets = function(){
     $.get('/tweets').done(function (tweets) {
@@ -73,7 +70,6 @@ $(function(){
     }).done(function (){
       $('.like').each(function(){
         $(this).attr('data-liked', $(this).data('liked'));
-        console.log($(this).data('liked'));
       });
     });
   }();
@@ -82,7 +78,6 @@ $(function(){
   $('textarea').keyup(changeLength);
 
   // registration form
-
   $('.register').click(function(event){
     event.preventDefault();
     $.post('/register', $('.authentication').serialize())
@@ -94,11 +89,12 @@ $(function(){
   $('.login').click(function(event){
     event.preventDefault();
     $.post('/login', $('.authentication').serialize())
-      .done(function(response) {
-        console.log(response);
+      .success(function (response) {
+        $('#myBtn').css('display', 'none');
+        $('#compose').css('display', 'block');
       });
-  });
 
+  });
 
   // On click of tweet button
   $('.newTweetForm').submit(function(event) {
@@ -132,11 +128,6 @@ $(function(){
         id: $(this).data('id'),
       }
     });
-
-    // need to figure out dynamic updating of the counter
-
-    console.log($(this).data('likes'));
-    console.log($(this).data('liked'));
   }));
 
   // Compose button - toggles Compose Tweet section
