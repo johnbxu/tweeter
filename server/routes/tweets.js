@@ -32,6 +32,12 @@ module.exports = function(DataHelpers) {
       } else {
         res.status(201).send(response);
         req.session.loggedIn = true;
+        req.session.email = user.email;
+        const variables = {
+          loggedIn: req.session.loggedIn,
+          email: req.session.email,
+        };
+        // res.render('index.html', variables);
       }
     });
   });
