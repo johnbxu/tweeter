@@ -10,12 +10,15 @@ const app           = express();
 const MongoClient   = require("mongodb").MongoClient;
 const MONGODB_URI   = process.env.MONGODB_URI;
 const ObjectID      = require('mongodb').ObjectID;
+// const mongoose        = require('mongoose');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Connects to and reads MongoDB collection in form of array
 MongoClient.connect(MONGODB_URI, (err, db) => {
+  // mongoose.connect(process.env.MONGODB_URI);
   if (err) {
     console.error(`Failed to connect: ${MONGODB_URI}`);
     throw err;

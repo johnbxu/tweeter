@@ -18,25 +18,58 @@
   border: solid black 1.2px;
   background: white;
   height: 60px;
-  margin: auto 1rem auto 5rem;
+  margin: auto 1rem auto 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  width: 12rem;
+}
+#nav-bar #compose {
+  display: none;
 }
 #nav-bar button:hover {
   background-color: #00a087;
   color: white;
 }
-
+#nav-bar .nav-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+#nav-bar .login {
+  width: 20rem;
+  margin: auto;
+}
+#nav-bar #logOut {
+  margin: auto;
+  display: none;
+}
+#nav-bar .loginForm {
+  width: 10rem;
+  margin: auto;
+}
+#nav-bar .register {
+  width: 20rem;
+  margin: auto;
+}
+#nav-bar .authentication {
+  display: flex;
+  flex-direction: column;
+}
+#nav-bar .modal-content {
+  width: 600px;
+}
+#nav-bar .authentication input {
+  width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 #nav-bar .headerContainer {
   display: flex;
   vertical-align: center;
 }
-
 #nav-bar .logo {
   height: 80px;
   width: 80px;
 }
-
 #nav-bar .header {
   font-size: 2rem;
   color: white;
@@ -46,20 +79,64 @@
   font-weight: 300;
 }
 
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media all and (max-width: 550px) {
   #nav-bar {
     width: 100%;
     flex-direction: column;
     height: 160px;
   }
-
   #nav-bar button {
     margin: auto 0.5rem auto 0.5rem;
   }
-
   #nav-bar .headerContainer {
     justify-content: center;
     margin-right: 3rem;
   }
 }
-
